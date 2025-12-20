@@ -4,13 +4,9 @@ import sys
 from typing import Any, Dict, Optional
 from dotenv import load_dotenv
 from agent.orchestrator import build_agent
+from data.db_registry import DATABASES, USER_DB_ACCESS
 
 # --- Configuration ---
-DATABASES = {
-    "northwind": "database/northwind_small.sqlite",
-    "chinook": "database/chinook.db",
-    "sakila": "database/sakila.db"
-}
 
 DEFAULT_MODEL = "gpt-4o"
 
