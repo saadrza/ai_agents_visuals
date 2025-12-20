@@ -4,6 +4,14 @@ from dotenv import load_dotenv
 from agent.orchestrator import build_agent
 
 
+# Database mapping
+DATABASES = {
+    "northwind": "database/northwind_small.sqlite",
+    "chinook": "database/chinook.db",
+    "sakila": "database/sakila.db"
+}
+
+
 def main():
     """Main entry point for the data analysis agent application."""
     
@@ -25,16 +33,28 @@ def main():
     if user_role not in ["admin", "analyst", "guest"]:
         print(f"Warning: '{user_role}' is not a recognized role. Proceeding anyway...")
     
-    db_name = input("Database (northwind / chinook / sakila): ").strip().lower()
-    valid_dbs = ["northwind", "chinook", "sakila"]
-    if db_name not in valid_dbs:
-        print(f"Warning: '{db_name}' not in {valid_dbs}. Proceeding anyway...")
+    print(f"\nAvailable databases: {', '.join(DATABASES.keys())}")
+    db_name = input("Database: ").strip().lower()
+    
+    if db_name not in DATABASES:
+        print(f"Error: '{db_name}' not in available databases: {list(DATABASES.keys())}")
+        return
+    
+    # Get the full database path
+    db_path = DATABASES[db_name]
+    
+    # Verify database file exists
+    if not os.path.exists(db_path):
+        print(f"Error: Database file '{db_path}' not found!")
+        print(f"Please ensure the database file exists at: {os.path.abspath(db_path)}")
+        return
 
     print("\nExample tasks:")
     print("  • List available tables")
     print("  • Give me a summary of the Customers table")
-    print("  • Analyze missing values in Orders")
-    print("  • Show correlation for Invoice table")
+    print("  • Show me the top 10 customers by total purchases")
+    print("  • Analyze sales trends over time")
+    print("  • Create a visualization of product categories")
     print()
 
     task = input("Enter your task: ").strip()
@@ -45,10 +65,17 @@ def main():
     # --- Build agent ---
     print("\nInitializing agent...")
     try:
-        agent = build_agent(api_key=api_key, temperature=0)
+        agent = build_agent(
+            api_key=api_key, 
+            temperature=0, 
+            model="gpt-4o",
+            db_path=db_path  # Pass the specific database file path
+        )
         print("✓ Agent built successfully.\n")
     except Exception as e:
         print(f"✗ Failed to build agent: {e}")
+        import traceback
+        traceback.print_exc()
         return
 
     # --- Structured prompt ---
@@ -56,10 +83,11 @@ def main():
 You are a data analysis assistant with the following context:
 
 User role: {user_role}
-Database: {db_name}
+Database: {db_name} (SQLite file: {db_path})
 Task: {task}
 
-Please complete this task using the available tools. Be specific and thorough in your analysis.
+Please complete this task using the available tools. Always start by understanding the database schema if needed.
+Be specific and thorough in your analysis.
 """.strip()
 
     print("--- Prompt Sent to Agent ---")
@@ -68,14 +96,41 @@ Please complete this task using the available tools. Be specific and thorough in
 
     # --- Execute agent ---
     try:
-        response = agent.invoke({"input": prompt})
-        
-        # Handle different response formats
-        if isinstance(response, dict):
-            output = response.get("output", response)
-            print(output)
+        # Check if it's a LangGraph agent or classic LangChain agent
+        if hasattr(agent, 'invoke'):
+            # Try to determine the format by checking the signature
+            try:
+                # Try LangGraph format first
+                response = agent.invoke({"messages": [("user", prompt)]})
+                
+                # Handle LangGraph response
+                if isinstance(response, dict) and "messages" in response:
+                    final_message = response["messages"][-1]
+                    if hasattr(final_message, 'content'):
+                        output = final_message.content
+                    else:
+                        output = str(final_message)
+                else:
+                    output = str(response)
+                    
+            except (TypeError, KeyError):
+                # Fall back to classic LangChain format
+                response = agent.invoke({"input": prompt})
+                
+                # Handle classic LangChain response
+                if isinstance(response, dict):
+                    output = response.get("output", str(response))
+                else:
+                    output = str(response)
         else:
-            print(response)
+            # Very old API - direct call
+            output = agent(prompt)
+        
+        # Print final answer
+        print("\n" + "="*60)
+        print("FINAL ANSWER:")
+        print("="*60)
+        print(output)
             
     except KeyboardInterrupt:
         print("\n\nTask interrupted by user.")
