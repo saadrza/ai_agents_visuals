@@ -1,9 +1,9 @@
 # data/db_registry.py
 
 DATABASES = {
-    "Northwind": "database/northwind_small.sqlite",
-    "Chinook":  "database/chinook.db",
-    "Sakila":   "database/sakila.db"
+    "Northwind": "input_files/database/northwind_small.sqlite",
+    "Chinook":  "input_files/database/chinook.db",
+    "Sakila":   "input_files/database/sakila.db"
 }
 
 USER_DB_ACCESS = {

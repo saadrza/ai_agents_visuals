@@ -1,0 +1,65 @@
+2025-12-20 22:18:09,943 - __main__ - ERROR - auth.yaml not found
+2025-12-20 22:21:07,787 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:21:07,794 - __main__ - INFO - Cleaned up old file: C:\Users\saadr\Desktop\ai_agents_visuals\generated_images\plot_sales_trends.png
+2025-12-20 22:21:07,960 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:21:08,000 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:21:08,715 - __main__ - ERROR - Agent build failed: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2025-12-20 22:22:21,045 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:22:21,642 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:22:22,500 - __main__ - INFO - Agent built successfully for: input_files/database/northwind_small.sqlite
+2025-12-20 22:22:22,500 - __main__ - INFO - Agent initialized for admin_user on Northwind
+2025-12-20 22:22:22,500 - __main__ - INFO - Agent built successfully for: input_files/database/northwind_small.sqlite
+2025-12-20 22:22:22,500 - __main__ - INFO - Agent initialized for admin_user on Northwind
+2025-12-20 22:22:27,494 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:22:27,502 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:22:34,301 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:22:34,309 - __main__ - INFO - User query: admin_user -  'Plot sales trends
+2025-12-20 22:22:44,431 - openai._base_client - INFO - Retrying request to /chat/completions in 0.437582 seconds
+2025-12-20 22:22:45,727 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:22:46,869 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:22:48,977 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:22:50,192 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:22:50,196 - __main__ - ERROR - Query error for admin_user: incomplete escape \U at position 2
+Traceback (most recent call last):
+  File "C:\Users\saadr\Desktop\ai_agents_visuals\app.py", line 378, in <module>
+    handle_image_display(final_answer)
+  File "C:\Users\saadr\Desktop\ai_agents_visuals\app.py", line 185, in handle_image_display
+    image_match = re.search(rf"{IMAGES_DIR}/[\w-]+\.png", final_answer)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 294, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 989, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 464, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 548, in _parse
+    code = _escape(source, this, state)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 402, in _escape
+    raise source.error("incomplete escape %s" % escape, len(escape))
+re.error: incomplete escape \U at position 2
+2025-12-20 22:24:36,779 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:24:38,166 - __main__ - INFO - Agent built successfully for: input_files/database/northwind_small.sqlite
+2025-12-20 22:24:38,166 - __main__ - INFO - Agent initialized for admin_user on Northwind
+2025-12-20 22:24:40,793 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:24:45,028 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:24:45,036 - __main__ - INFO - User query: admin_user - Plot sales trends')
+2025-12-20 22:24:46,067 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:24:47,355 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:24:50,311 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:24:51,903 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:24:52,029 - __main__ - INFO - Image displayed: generated_images\plot_sales_trends.png
+2025-12-20 22:24:52,029 - __main__ - INFO - Response generated for: admin_user
+2025-12-20 22:25:08,453 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-20 22:25:08,588 - __main__ - INFO - User query: admin_user - quit
+2025-12-20 22:25:09,745 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-20 22:25:09,753 - __main__ - INFO - Response generated for: admin_user
