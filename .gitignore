@@ -1,7 +1,8 @@
-.env
+input_files/.env
 *.pyc
 __pycache__/
 venv/
 .vscode/
-auth.yaml
-hasher.py
+input_files/auth.yaml
+input_files/hasher.py
+input_files
