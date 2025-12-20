@@ -1,12 +1,13 @@
 # data/db_registry.py
+
 DATABASES = {
-    "northwind": "database/northwind_small.sqlite",
-    "chinook":  "database/chinook.db",
-    "sakila":   "database/sakila.db"
+    "Northwind": "database/northwind_small.sqlite",
+    "Chinook":  "database/chinook.db",
+    "Sakila":   "database/sakila.db"
 }
 
 USER_DB_ACCESS = {
-    "admin": ["northwind", "chinook", "sakila"],
-    "analyst": ["northwind", "chinook"],
+    "admin": ["Northwind", "Chinook", "Sakila"],
+    "analyst": ["Northwind", "Chinook"],
     "guest": []
 }

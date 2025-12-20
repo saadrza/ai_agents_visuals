@@ -3,4 +3,5 @@
 __pycache__/
 venv/
 .vscode/
-data/db_registry.py
+auth.yaml
+hasher.py

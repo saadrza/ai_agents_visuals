@@ -17,6 +17,33 @@ def list_tables(user, db_name):
     conn.close()
     return tables["name"].tolist()
 
+def get_database_schema(user, db_name):
+    """
+    Returns a string summary of the database schema for the LLM.
+    Format: TableName (Column1, Column2, ...)
+    """
+    if db_name not in USER_DB_ACCESS.get(user, []):
+        raise PermissionError("Access denied")
+
+    conn = sqlite3.connect(DATABASES[db_name])
+    cursor = conn.cursor()
+    
+    # Get all tables
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    tables = [row[0] for row in cursor.fetchall()]
+    
+    schema_summary = []
+    
+    for table in tables:
+        # Get columns for each table
+        # PRAGMA table_info returns: (cid, name, type, notnull, dflt_value, pk)
+        cursor.execute(f"PRAGMA table_info([{table}])") 
+        columns = [f"{col[1]} ({col[2]})" for col in cursor.fetchall()]
+        schema_summary.append(f"Table: {table}\nColumns: {', '.join(columns)}")
+        
+    conn.close()
+    return "\n\n".join(schema_summary)
+
 
 def load_table(user, db_name, table):
     """

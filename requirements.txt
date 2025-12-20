@@ -3,3 +3,8 @@ openai
 pandas 
 matplotlib 
 sqlalchemy
+streamlit 
+python-dotenv
+streamlit-authenticator 
+pyyaml
+bcrypt
