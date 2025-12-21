@@ -4,6 +4,7 @@ import sys
 import unittest
 from dotenv import load_dotenv
 
+
 # Try importing the agent builder
 # We wrap this to provide a clear error if the module is missing
 try:
@@ -31,7 +32,7 @@ class TestDataAnalysisAgent(unittest.TestCase):
         load_dotenv()
         cls.api_key = os.getenv("OPENAI_API_KEY")
         # Define the database path you want to test
-        cls.test_db_path = "database/northwind_small.sqlite" 
+        cls.test_db_path = "input_files/database/northwind_small.sqlite"
 
     def test_01_environment_setup(self):
         """Test if API Key is loaded correctly."""

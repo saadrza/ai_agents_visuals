@@ -63,3 +63,39 @@ re.error: incomplete escape \U at position 2
 2025-12-20 22:25:08,588 - __main__ - INFO - User query: admin_user - quit
 2025-12-20 22:25:09,745 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-12-20 22:25:09,753 - __main__ - INFO - Response generated for: admin_user
+2025-12-21 14:53:09,269 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 14:53:09,275 - __main__ - INFO - Cleaned up old file: generated_images\plot_sales_trends.png
+2025-12-21 14:53:12,520 - __main__ - INFO - Agent built successfully for: input_files/database/northwind_small.sqlite
+2025-12-21 14:53:12,520 - __main__ - INFO - Agent initialized for admin_user on Northwind
+2025-12-21 14:53:15,017 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 14:53:18,718 - __main__ - INFO - Chat reset
+2025-12-21 14:53:18,724 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 14:53:18,748 - __main__ - INFO - Agent built successfully for: input_files/database/chinook.db
+2025-12-21 14:53:18,748 - __main__ - INFO - Agent initialized for admin_user on Chinook
+2025-12-21 14:53:20,724 - __main__ - INFO - Chat reset
+2025-12-21 14:53:20,729 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 14:53:20,755 - __main__ - INFO - Agent built successfully for: input_files/database/sakila.db
+2025-12-21 14:53:20,756 - __main__ - INFO - Agent initialized for admin_user on Sakila
+2025-12-21 14:53:22,492 - __main__ - INFO - Chat reset
+2025-12-21 14:53:22,497 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 14:53:22,518 - __main__ - INFO - Agent built successfully for: input_files/database/northwind_small.sqlite
+2025-12-21 14:53:22,519 - __main__ - INFO - Agent initialized for admin_user on Northwind
+2025-12-21 15:01:32,297 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 15:01:32,324 - __main__ - INFO - Agent built successfully for: input_files/database/northwind_small.sqlite
+2025-12-21 15:01:32,324 - __main__ - INFO - Agent initialized for admin_user on Northwind
+2025-12-21 15:01:36,039 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 17:32:15,632 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 17:32:15,650 - __main__ - INFO - User query: admin_user -  Request visualizations (e.g., 'Plot sales trends')
+2025-12-21 17:32:16,550 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-21 17:32:18,726 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-21 17:32:21,980 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-21 17:32:24,057 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-21 17:32:24,164 - __main__ - INFO - Image displayed: generated_images\plot_sales_trends.png
+2025-12-21 17:32:24,164 - __main__ - INFO - Response generated for: admin_user
+2025-12-21 17:32:37,079 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 17:32:49,277 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 17:33:41,977 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 17:33:42,005 - __main__ - INFO - Agent built successfully for: input_files/database/northwind_small.sqlite
+2025-12-21 17:33:42,005 - __main__ - INFO - Agent initialized for admin_user on Northwind
+2025-12-21 17:33:42,436 - __main__ - INFO - User logged in: admin_user (admin)
+2025-12-21 17:33:48,276 - __main__ - INFO - User logged in: admin_user (admin)

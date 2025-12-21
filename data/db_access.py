@@ -5,7 +5,14 @@ from data.db_registry import DATABASES, USER_DB_ACCESS
 
 
 def list_tables(user, db_name):
-    """List all tables in the database if user has access."""
+    """List all tables in the database if user has access.
+    
+    Args:
+        user: User role (admin, analyst, guest)
+        db_name: Database name (Northwind, Chinook, Sakila)
+        Returns:
+        List of table names
+    """
     if db_name not in USER_DB_ACCESS.get(user, []):
         print("User:", user, "DB Access:", USER_DB_ACCESS.get(user, []))
         raise PermissionError("Access denied")
@@ -20,6 +27,9 @@ def list_tables(user, db_name):
 def get_database_schema(user, db_name):
     """
     Returns a string summary of the database schema for the LLM.
+    Args:
+        user: User role (admin, analyst, guest)
+        db_name: Database name (Northwind, Chinook, Sakila)
     Format: TableName (Column1, Column2, ...)
     """
     if db_name not in USER_DB_ACCESS.get(user, []):

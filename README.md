@@ -21,7 +21,7 @@ A Streamlit-based application for secure, role-based access to multiple SQLite d
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/yourusername/ai_agents_visuals.git
+git clone https://github.com/saadrza/ai_agents_visuals.git
 cd ai_agents_visuals
 ```
 
@@ -44,7 +44,7 @@ cd ai_agents_visuals
 
 ### 4. Add your SQLite databases
 
-- Place your `.db` files in the appropriate location.
+- Place your `.db` files in the appropriate location in input_files/database folder or setup using config file.
 - Update `data/db_registry.py` to register your databases and user access.
 
 ### 5. Run the app
@@ -70,19 +70,24 @@ docker run -p 8501:8501 --env-file .env secure-data-agent
 
 ```
 .
-├── app.py                # Main Streamlit app
+├── app.py                 # Main Streamlit app
+├── main.py                # Main without app (works using CLI)
+├── test_analysis_tool.py  # Tests checking for OpenAI api, databases, parsing of Prompts, and wroking of agents
 ├── agent/
-│   └── orchestrator.py   # Agent orchestration logic
+│   └── orchestrator.py   # Agent orchestration logic using LangChain
 ├── data/
 │   ├── db_access.py      # Database access helpers
 │   └── db_registry.py    # Database registry and user access
 ├── generated_images/     # Generated visualizations
+├── input_files/
+│   ├── database          # Folder with Databases
+│   └── hasher.py         # Password hash generator (not committed)
 ├── requirements.txt
-├── hasher.py             # Password hash generator
-├── auth.yaml             # Authentication config (not committed)
-├── .env                  # Environment variables (not committed)
-├── .gitignore
-└── Dockerfile
+├── styles/
+│   └── company_styles.py # Company Styles helpers
+├── auth.yaml             # Authentication config   (not committed)
+├── .env                  # Environment variables   (not committed)
+└── .gitignore
 ```
 
 ---
